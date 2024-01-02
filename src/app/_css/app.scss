@@ -57,6 +57,7 @@ body {
 .main {
   flex: 1 1 auto;
 }
+
 ::selection {
   background: var(--color-dark-500);
   color: var(--color-base-800);
@@ -110,6 +111,7 @@ ol {
 
 a {
   color: var(--color-dark-500);
+  text-decoration: none;
 
   &:focus {
     opacity: .8;
