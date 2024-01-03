@@ -485,9 +485,11 @@ export interface Header {
   createdAt?: string
 }
 export interface Footer {
-  id: string
+  id: string,
+  copyright: string;
   navItems?: {
     link: {
+      icon: Media
       type?: 'reference' | 'custom'
       newTab?: boolean
       reference: {
