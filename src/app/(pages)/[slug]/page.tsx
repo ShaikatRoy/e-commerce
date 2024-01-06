@@ -3,7 +3,6 @@ import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 
-import Categories from '../../../payload/collections/Categories'
 import { Category, Page } from '../../../payload/payload-types'
 import { staticHome } from '../../../payload/seed/home-static'
 import { fetchDoc } from '../../_api/fetchDoc'
@@ -21,13 +20,15 @@ import { generateMeta } from '../../_utilities/generateMeta'
 // If you are not using Payload Cloud then this line can be removed, see `../../../README.md#cache`
 export const dynamic = 'force-dynamic'
 
+import Categories from '../../_components/Categories'
+
 import classes from './index.module.scss'
 
 export default async function Page({ params: { slug = 'home' } }) {
   const { isEnabled: isDraftMode } = draftMode()
 
   let page: Page | null = null
-  let Categories: Category[] | null = null
+  let categories: Category[] | null = null
 
   try {
     page = await fetchDoc<Page>({
@@ -36,7 +37,7 @@ export default async function Page({ params: { slug = 'home' } }) {
       draft: isDraftMode,
     })
 
-    Categories = await fetchDocs<Category>('categories')
+    categories = await fetchDocs<Category>('categories')
   } catch (error) {
     // when deploying this template on Payload Cloud, this page needs to build before the APIs are live
     // so swallow the error here and simply render the page with fallback data where necessary
@@ -63,7 +64,9 @@ export default async function Page({ params: { slug = 'home' } }) {
         <section>
           <Hero {...hero} />
 
-          <Gutter children={''}>{/* categories */}</Gutter>
+          <Gutter className={classes.home}>
+            <Categories categories={Categories} />
+          </Gutter>
         </section>
       ) : (
         <>
