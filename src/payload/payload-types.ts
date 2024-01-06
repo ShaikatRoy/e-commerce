@@ -177,6 +177,7 @@ export interface Media {
   height?: number | null;
 }
 export interface Category {
+  map(arg0: (category: any) => JSX.Element): import("react").ReactNode;
   id: string;
   title: string;
   media?: string | Media | null;
