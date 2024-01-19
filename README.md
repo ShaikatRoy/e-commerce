@@ -1,5 +1,11 @@
 # Payload E-Commerce Template
 
+------ TO DO ----------
+
+** NEED TO FIX BUILD ERROR
+** PAYLOAD CLOUD STORAGE PASSWORD LIMIT EXCEED PROBLEM
+
+-------------------------
 This is the official [Payload E-Commerce Template](https://github.com/payloadcms/payload/blob/main/templates/ecommerce). Use it to power e-commerce businesses and online stores of all sizes. This repo includes a fully-working backend, enterprise-grade admin panel, and a beautifully designed, production-ready website.
 
 This template is right for you if you are selling:
